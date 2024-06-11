@@ -1,0 +1,55 @@
+git
+	git log --all --oneline --graph
+	git commit -am "commit msg"
+	clone - remote to local copy
+	checkout - brancheName(switch로 바뀜), commitId - 해당 version으로 이동restore와 동일)
+	git switch -c new-branch # develop 브랜치가 없을 때, 브랜치를 생성 후 이동하고 싶다면
+
+	계정 token
+	pull
+	fetch
+	git fetch [원격저장소 이름]
+	fetch는 원격저장소의 업데이트된 최신 커밋의 정보를 가져오는 명령어입니다.
+
+	git merge FETCH_HEAD
+# FETCH_HEAD에 업데이트된 원격저장소의 최신 커밋이, 현재 브랜치에 병합 됩니다.
+
+	git fetch; git merge FETCH_HEAD
+# git fetch + merge FETCH_HEAD 명령어를 한 번에 사용
+	FETCH_HEAD 파일이란?
+❗ Git에서 Fetch 할 때 마다 업데이트 되는 .git 디렉터리 하위에 위치한 파일
+이 파일에는 원격저장소가 병합할 때 마다 생기는 최신 커밋의 정보가 들어 있다.
+	tag 저장소의 소스 버전을 간간히 표시하기 위해서는 커밋 메시지 또는 브랜치로 해서 표시하는 것 보단 태그로 깔끔하게 하는 것이 좋음
+	git tag, git tag v1.0.2/git tag -a v1.0.3 -m"Release version 1.0.3"
+	git show v1.0.3
+	태그를 이전 커밋에 붙이기 - 커밋 해쉬를 추가
+	# git tag v1.0.5 03c0beb080
+	# git tag -a v1.0.4 -m"Release version 1.0.4" 432f6ed
+	태그 원격 저장소에 올리기
+	# git push origin v1.0.3
+	모든 태그를 올리려면 --tags를 사용
+	# git push origin --tags
+	태그 삭제하기
+	# git tag -d v1.0.0
+	원격 저장소에 올라간 태그를 삭제 ":"
+	# git push origin :v1.0.0
+
+	config user.name - 지정한 이후 사용자에 적용 이전 커밋엔 영향을 끼치지 않음
+	HEAD
+	push는 local에서 remote로 commit 이력을 업로드하는 것
+	pull은 remote에서 local로 commit 이력을 다운로드하는 것
+
+	GitHub에서 repo를 생성하고 나면 다들 origin이라는 용어를 보셨을 겁니다. clone했을 때는 origin이 자동으로 등록돼있고, init했을 때는 git remote add origin ...으로 origin을 직접 등록하라고 안내하죠. 
+	origin = remote
+	upstream과 downstream
+	origin이 upstream, local이 downstream
+	local에서 origin으로 push한다
+	origin에서 local로 pull한다
+	git push -u origin main
+	-u 옵션이 --set-upstream
+
+	fork는 다른 사람의 repository를 내 소유의 repository로 복사
+	원래 소유자의 remote를 말할 때 upstream, 
+	내가 포크한 remote를 말할 때 origin
+	
+	
